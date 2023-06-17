@@ -11,7 +11,6 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { Popup } from "@/components";
-import { ApiResponseVariant } from "@/utils/apiRequest";
 import { intiateTalk } from "@/operations/talk";
 
 type FormData = {

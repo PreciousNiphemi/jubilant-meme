@@ -17,5 +17,5 @@ export const addAttendeeToTalk = ({
     title,
     attendee,
   };
-  return apiRequest(`/talk/${id}`, "PUT", data);
+  return apiRequest(`/talk/${id}/attendee`, "PUT", data);
 };

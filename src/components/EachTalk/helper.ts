@@ -1,4 +1,4 @@
-type AttendeeType = {
+export type AttendeeType = {
   dateCreated: string;
   email: string;
   name: string;
@@ -6,7 +6,7 @@ type AttendeeType = {
   _id?: string;
 };
 
-type SenderType = {
+export type SenderType = {
   dateCreated: string;
   email: string;
   name: string;
@@ -14,7 +14,7 @@ type SenderType = {
   _id?: string;
 };
 
-type ChatType = {
+export type ChatType = {
   dateCreated: string;
   email: string;
   message: string;

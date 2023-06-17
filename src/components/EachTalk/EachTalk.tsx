@@ -13,7 +13,12 @@ import { AddIcon, DeleteIcon } from "@chakra-ui/icons";
 import { EachTalkTypeProps } from "./helper";
 import { Popup } from "../Popup";
 import { removeTalk } from "@/operations/talk";
-export const EachTalk = ({ id, title, ...restProps }: EachTalkTypeProps) => {
+export const EachTalk = ({
+  id,
+  title,
+  attendees,
+  ...restProps
+}: EachTalkTypeProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [loading, setLoading] = useState(false);
   const toast = useToast();
@@ -45,6 +50,12 @@ export const EachTalk = ({ id, title, ...restProps }: EachTalkTypeProps) => {
         isClosable: true,
       });
     }
+  };
+
+  const talkData = {
+    id,
+    title,
+    attendees: JSON.stringify(attendees),
   };
   return (
     <>
@@ -80,7 +91,12 @@ export const EachTalk = ({ id, title, ...restProps }: EachTalkTypeProps) => {
                   boxSize={4}
                   color="blue.400"
                   cursor="pointer"
-                  onClick={() => router.push(`/talk/${id}`)}
+                  onClick={() =>
+                    router.push({
+                      pathname: `/talk/${id}`,
+                      query: talkData,
+                    })
+                  }
                 />
               </Tooltip>
             </Flex>

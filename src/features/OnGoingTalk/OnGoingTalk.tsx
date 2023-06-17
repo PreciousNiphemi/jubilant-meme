@@ -18,6 +18,8 @@ export const OnGoingTalks = () => {
               key={eachTalk.id}
               id={eachTalk.id}
               title={eachTalk.title}
+              attendees={eachTalk.attendees}
+              chats={eachTalk.chats}
             />
           );
         })}
