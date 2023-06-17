@@ -1,8 +1,11 @@
 import axios, { AxiosResponse, Method } from "axios";
 
+export type ApiResponseVariant = "success" | "error";
+
 interface ApiResponse {
-  toast: boolean;
+  variant: ApiResponseVariant;
   data?: any;
+  error?: any;
 }
 
 export const apiRequest = async (
@@ -10,15 +13,18 @@ export const apiRequest = async (
   method: Method,
   data?: object
 ): Promise<ApiResponse> => {
-  const fullUrl = `${process.env.NEXT_PUBLIC_BASE_URL}${url}`;
+  const fullUrl = `https://conference-api.onrender.com${url}`;
   try {
     const response: AxiosResponse = await axios({ url: fullUrl, method, data });
-    const toast = response.status >= 200 && response.status < 300;
-    const apiResponse: ApiResponse = { toast, data: response.data };
+    const variant =
+      response.status >= 200 && response.status < 300
+        ? ("success" as ApiResponseVariant)
+        : ("error" as ApiResponseVariant);
+    const apiResponse: ApiResponse = { variant, data: response.data };
     return apiResponse;
   } catch (error: unknown) {
-    const toast = false;
-    const apiResponse: ApiResponse = { toast };
+    const variant = "error" as ApiResponseVariant;
+    const apiResponse: ApiResponse = { variant, error: error };
     return apiResponse;
   }
 };

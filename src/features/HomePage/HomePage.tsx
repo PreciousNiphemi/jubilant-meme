@@ -2,6 +2,7 @@ import React from "react";
 import { Flex, Box, Text } from "@chakra-ui/react";
 import { EachTalk } from "@/components";
 import { useRouter } from "next/router";
+import { CreateTalk } from "../CreateTalk/CreateTalk";
 export const HomePage = () => {
   const router = useRouter();
   return (
@@ -55,7 +56,9 @@ export const HomePage = () => {
               </Text>
             </Box>
 
-            <Box marginTop={{ base: "", md: "", lg: "2rem" }}></Box>
+            <Box marginTop={{ base: "", md: "", lg: "2rem" }}>
+              <CreateTalk />
+            </Box>
           </Box>
 
           <Box flex={1}>
