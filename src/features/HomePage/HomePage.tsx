@@ -1,7 +1,5 @@
 import React from "react";
 import { Flex, Box, Text } from "@chakra-ui/react";
-
-import { EachTalk } from "@/components";
 import { useRouter } from "next/router";
 import { OnGoingTalks } from "../OnGoingTalk";
 import { CreateTalk } from "../CreateTalk/CreateTalk";
@@ -73,7 +71,7 @@ export const HomePage = () => {
                 fontWeight={{ base: "", md: "", lg: 400 }}
                 paddingBottom={{ base: "", md: "", lg: "0.5rem" }}
               >
-                On-Going talks
+                On-going talks
               </Text>
               <Box>
                 <OnGoingTalks />
