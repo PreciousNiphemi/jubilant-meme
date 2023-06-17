@@ -1,0 +1,1 @@
+export { EachTalk } from "./EachTalk";
