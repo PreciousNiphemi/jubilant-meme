@@ -1,13 +1,9 @@
 import React from "react";
 import { Box, Text, Image, Flex, Button } from "@chakra-ui/react";
 import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
-type EachTalkProps = {
-  id?: string;
-  primaryHandler: () => void;
-  secondaryHandler?: () => void;
-};
+import { EachTalkTypeProps } from "./helper";
 
-export const EachTalk = () => {
+export const EachTalk = ({ id, title, ...restProps }: EachTalkTypeProps) => {
   return (
     <Box
       px={{ base: "", md: "", lg: "1rem" }}
@@ -24,7 +20,7 @@ export const EachTalk = () => {
             fontSize={{ base: "", md: "", lg: "20px" }}
             fontWeight={{ base: "", md: "", lg: 500 }}
           >
-            Oscafest talk
+            {title}
           </Text>
         </Box>
 

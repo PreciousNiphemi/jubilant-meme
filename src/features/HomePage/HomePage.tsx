@@ -1,10 +1,13 @@
 import React from "react";
 import { Flex, Box, Text } from "@chakra-ui/react";
+
 import { EachTalk } from "@/components";
 import { useRouter } from "next/router";
+import { OnGoingTalks } from "../OnGoingTalk";
 import { CreateTalk } from "../CreateTalk/CreateTalk";
 export const HomePage = () => {
   const router = useRouter();
+
   return (
     <Box
       w="100%"
@@ -73,7 +76,7 @@ export const HomePage = () => {
                 On-Going talks
               </Text>
               <Box>
-                <EachTalk />
+                <OnGoingTalks />
 
                 <Box mt={{ base: "", md: "", lg: "2rem" }}>
                   <Text
