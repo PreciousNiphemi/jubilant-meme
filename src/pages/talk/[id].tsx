@@ -9,6 +9,7 @@ export default function IndividualTalk() {
       as="main"
       px={[6, 16]}
       flex="1 1 0"
+      bg="red.500"
       mx={["initial", "auto"]}
       maxW={["100vw", "100vw", "1600px"]}
     >

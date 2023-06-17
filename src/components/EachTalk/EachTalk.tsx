@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import {
   Box,
   Text,
-  Image,
   Flex,
   Button,
   useToast,
+  Tooltip,
   useDisclosure,
 } from "@chakra-ui/react";
-import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
+import { useRouter } from "next/router";
+import { AddIcon, DeleteIcon } from "@chakra-ui/icons";
 import { EachTalkTypeProps } from "./helper";
 import { Popup } from "../Popup";
 import { removeTalk } from "@/operations/talk";
@@ -16,7 +17,7 @@ export const EachTalk = ({ id, title, ...restProps }: EachTalkTypeProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [loading, setLoading] = useState(false);
   const toast = useToast();
-
+  const router = useRouter();
   const handleTalkDeletion = async () => {
     setLoading(true);
     const removeTalkData = {
@@ -67,13 +68,21 @@ export const EachTalk = ({ id, title, ...restProps }: EachTalkTypeProps) => {
           </Box>
 
           <Box>
-            <Flex gap={{ base: "", md: "", lg: 2 }}>
+            <Flex alignItems="center" gap={{ base: "", md: "", lg: 2 }}>
               <DeleteIcon
                 boxSize={6}
                 color="red.500"
                 cursor="pointer"
                 onClick={onOpen}
               />
+              <Tooltip label="Join Talk" aria-label="A tooltip">
+                <AddIcon
+                  boxSize={4}
+                  color="blue.400"
+                  cursor="pointer"
+                  onClick={() => router.push(`/talk/${id}`)}
+                />
+              </Tooltip>
             </Flex>
           </Box>
         </Flex>
